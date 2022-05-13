@@ -14,6 +14,13 @@ Bonus:
 - Add a new function to display all of the distinct Genres in a Playlist
 - Using the get_tracks() function, print out the # of tracks by Genre
 
+## Database Diagram
+
 ![database diagram](sqlite-sample-database-color.jpg)
 
+## Instructions
 
+1. create a virtual environment python -m venv venv
+2. activate the virtual environment source venv/bin/activate or venv\Scripts\activate.bat
+3. install the required packages python -m pip install -r requirements.txt
+4. add your code to the challenge.py file
