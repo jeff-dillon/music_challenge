@@ -58,7 +58,7 @@ def get_tracks(conn:sqlite3.Connection) -> pd.DataFrame:
     df = pd.read_sql_query(sql_query, conn)
     return df
     
-
+# Challenge 1
 def get_playlists():
     """
     document the function here
@@ -66,6 +66,7 @@ def get_playlists():
     # Add your challenge code here
     pass
 
+# Challenge 2
 def get_tracks_by_playlist():
     """
     document the function here
