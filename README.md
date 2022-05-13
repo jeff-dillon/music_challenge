@@ -17,6 +17,9 @@ Bonus:
 
 ![database diagram](sqlite-sample-database-color.jpg)
 
+You can test queries using an online version of this database here:
+[SQLite Tutorial](https://www.sqlitetutorial.net/tryit/)
+
 ## Instructions
 
 1. create a virtual environment `python -m venv venv`
