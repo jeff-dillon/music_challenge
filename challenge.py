@@ -1,3 +1,6 @@
+"""
+Music Challenge
+"""
 import os
 import sqlite3
 import pandas as pd
@@ -23,9 +26,9 @@ def get_genres(conn:sqlite3.Connection) -> pd.DataFrame:
     :return: all genres
     """
     df = pd.read_sql_query("SELECT * FROM genres", conn)
-    
+
     return df
-    
+
 
 def get_tracks_by_genre(genre_id:int, conn:sqlite3.Connection) -> pd.DataFrame:
     """
@@ -57,14 +60,14 @@ def get_tracks(conn:sqlite3.Connection) -> pd.DataFrame:
     """
     df = pd.read_sql_query(sql_query, conn)
     return df
-    
+
 # Challenge 1
 def get_playlists():
     """
     document the function here
     """
     # Add your challenge code here
-    pass
+
 
 # Challenge 2
 def get_tracks_by_playlist():
@@ -72,7 +75,6 @@ def get_tracks_by_playlist():
     document the function here
     """
     #add your challenge code here
-    pass
 
 # Bonus 1
 def get_genres_by_playlist():
@@ -80,9 +82,11 @@ def get_genres_by_playlist():
     document the function here
     """
     #add your bonus code here
-    pass
 
 def main():
+    """
+    main function runs the get* functions
+    """
     database = "chinook.db"
 
     if not os.path.exists(database):
@@ -96,7 +100,7 @@ def main():
         quit()
 
     with conn:
-        
+
         print("List of Genres:")
         genre_df = get_genres(conn)
         print(genre_df.head())
