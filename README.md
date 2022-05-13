@@ -10,7 +10,8 @@ Challenge:
 
 Bonus:
 - Add a new function to display all of the distinct Genres in a Playlist
-- Print out the # of Tracks by Genre
+- Use the new function to display the distinct Genres in the "Heavy Metal Classic" playlist
+- Print out the total # of Tracks by Genre
 
 ## Database Diagram
 
