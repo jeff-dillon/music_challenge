@@ -38,8 +38,9 @@ def get_tracks_by_genre(genre_id:int, conn:sqlite3.Connection) -> pd.DataFrame:
         SELECT t.trackID, t.Name, t.Composer
         FROM tracks t, genres g 
         WHERE t.GenreId = g.GenreId
+        AND g.GenreId = ?
     """
-    df = pd.read_sql_query(sql_query, conn)
+    df = pd.read_sql_query(sql_query, conn, params=(genre_id, ))
     return df
 
 def get_playlists():
