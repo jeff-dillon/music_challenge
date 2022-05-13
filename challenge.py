@@ -43,6 +43,22 @@ def get_tracks_by_genre(genre_id:int, conn:sqlite3.Connection) -> pd.DataFrame:
     df = pd.read_sql_query(sql_query, conn, params=(genre_id, ))
     return df
 
+def get_tracks(conn:sqlite3.Connection) -> pd.DataFrame:
+    """
+    Get a list of all tracks
+    :param: conn: connection to database
+    :return: all tracks in the database
+    """
+    sql_query = """
+        SELECT t.trackID, t.Name as TrackName, t.Composer, g.Name as GenreName, a.Title as AlbumTitle
+        FROM tracks t, genres g, albums a 
+        WHERE t.GenreId = g.GenreId
+        AND t.AlbumId = a.AlbumId
+    """
+    df = pd.read_sql_query(sql_query, conn)
+    return df
+    
+
 def get_playlists():
     """
     document the function here
@@ -55,6 +71,13 @@ def get_tracks_by_playlist():
     document the function here
     """
     #add your challenge code here
+    pass
+
+def get_genres_by_playlist():
+    """
+    document the function here
+    """
+    #add your bonus code here
     pass
 
 def main():
@@ -76,9 +99,15 @@ def main():
         genre_df = get_genres(conn)
         print(genre_df.head())
 
-        print("List of Tracks in Genre")
+        print("List of Tracks in Genre 1")
         tracks_df = get_tracks_by_genre(1, conn)
         print(tracks_df.head())
+
+        print("List of all tracks")
+        all_tracks__df = get_tracks(conn)
+        print(all_tracks__df.head())
+
+        # call your challenge and bonus functions here
 
 
 if __name__ == "__main__":
