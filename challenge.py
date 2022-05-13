@@ -5,7 +5,7 @@ import os
 import sqlite3
 import pandas as pd
 
-def create_connection(db_file:str):
+def create_connection(db_file:str) -> sqlite3.Connection:
     """
     create connection to sqlite database specified by db_file
     :param db_file: database file
