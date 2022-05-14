@@ -9,9 +9,9 @@ Challenge:
 - Add a new function to display all of the Tracks in a given Playlist
 
 Bonus:
-- Add a new function to display all of the distinct Genres in a Playlist
-- Use the new function to display the distinct Genres in the "Heavy Metal Classic" playlist
+- Add a new function to display the distinct Genres in the "Heavy Metal Classic" playlist
 - Print out the total # of Tracks by Genre
+- Add a new function to dsiplay the top 10 artists by total sales
 
 ## Database Diagram
 
