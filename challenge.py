@@ -1,6 +1,7 @@
 """
 Music Challenge
 """
+import sys
 import os
 import sqlite3
 import pandas as pd
@@ -14,8 +15,8 @@ def create_connection(db_file:str) -> sqlite3.Connection:
     conn = None
     try:
         conn = sqlite3.connect(db_file)
-    except sqlite3.Error as e:
-        print(e)
+    except sqlite3.Error as sql_error:
+        print(sql_error)
 
     return conn
 
@@ -25,9 +26,7 @@ def get_genres(conn:sqlite3.Connection) -> pd.DataFrame:
     :param: conn: connection to database
     :return: all genres
     """
-    df = pd.read_sql_query("SELECT * FROM genres", conn)
-
-    return df
+    return pd.read_sql_query("SELECT * FROM genres", conn)
 
 
 def get_tracks_by_genre(genre_id:int, conn:sqlite3.Connection) -> pd.DataFrame:
@@ -43,8 +42,8 @@ def get_tracks_by_genre(genre_id:int, conn:sqlite3.Connection) -> pd.DataFrame:
         WHERE t.GenreId = g.GenreId
         AND g.GenreId = ?
     """
-    df = pd.read_sql_query(sql_query, conn, params=(genre_id, ))
-    return df
+    return pd.read_sql_query(sql_query, conn, params=(genre_id, ))
+
 
 def get_tracks(conn:sqlite3.Connection) -> pd.DataFrame:
     """
@@ -58,8 +57,7 @@ def get_tracks(conn:sqlite3.Connection) -> pd.DataFrame:
         WHERE t.GenreId = g.GenreId
         AND t.AlbumId = a.AlbumId
     """
-    df = pd.read_sql_query(sql_query, conn)
-    return df
+    return pd.read_sql_query(sql_query, conn)
 
 # Challenge 1
 def get_playlists():
@@ -91,16 +89,15 @@ def main():
 
     if not os.path.exists(database):
         print("database file not found")
-        quit()
+        sys.exit()
 
     # create a database connection
     conn = create_connection(database)
     if not conn:
         print("Error connecting to database")
-        quit()
+        sys.exit()
 
     with conn:
-
         print("List of Genres:")
         genre_df = get_genres(conn)
         print(genre_df.head())
