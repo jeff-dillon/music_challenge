@@ -2,16 +2,24 @@
 
 ## Code Louisville Coding Challenge
 
-Your client is building analytics for a music app and wants you to add some functionality to an existing python application. The application currently shows the available Tracks, Genres, and Tracks in a given Genre.
+Your client is building analytics for a music app and wants you to add some functionality to an existing python script. The script currently has the following analytics functions:
+* get_tracks() returns a DataFrame with all of the available Tracks in the database
+* get_genres() returns a DataFrame with all of the available Genres in the database
+* get_tracks_by_genre() returns a DataFrame with all of the Tracks in a given Genre
 
-Challenge:
-- Add a new function to display all of the Playlists
-- Add a new function to display all of the Tracks in a given Playlist
+Challenge: Add the following functions.
+* get_playlists() return a DataFrame with all of the Playlists in the datbase
+* get_tracks_by_playlist() - return a DataFrame with all of the Tracks in a given Playlist
 
-Bonus:
-- Add a new function to display the distinct Genres in the "Heavy Metal Classic" playlist
-- Print out the total # of Tracks by Genre
-- Add a new function to dsiplay the top 10 artists by total sales
+Bonus: Add the following features.
+* get_genres_by_playlist() returns a DataFrame with the distinct Genres in a given playlist. 
+    - Example Input: "Heavy Metal Classic" 
+    - Example Output: Rock, Metal, Heavy Metal
+* Print out the total # of Tracks by Genre.
+    - You can do this in using Pandas querying the get_tracks() dataframe
+    - You can do this in SQL by writing a new function
+* get_top_ten_artists_by_sales() returns a DataFrame with the top 10 artists by total sales
+    - Sales are calculated by summing the product of the UnitPrice with the Quantity in the invoice_items table
 
 ## Database Diagram
 
