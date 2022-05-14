@@ -7,11 +7,11 @@ Your client is building analytics for a music app and wants you to add some func
 * get_genres() returns a DataFrame with all of the available Genres in the database
 * get_tracks_by_genre() returns a DataFrame with all of the Tracks in a given Genre
 
-Challenge: Add the following functions.
+### Challenge: Add the following functions.
 * get_playlists() return a DataFrame with all of the Playlists in the datbase
 * get_tracks_by_playlist() - return a DataFrame with all of the Tracks in a given Playlist
 
-Bonus: Add the following features.
+### Bonus: Add the following features.
 * get_genres_by_playlist() returns a DataFrame with the distinct Genres in a given playlist. 
     - Example Input: "Heavy Metal Classic" 
     - Example Output: Rock, Metal, Heavy Metal
