@@ -38,9 +38,9 @@ def get_tracks_by_genre(genre_id:int, conn:sqlite3.Connection) -> pd.DataFrame:
     """
     sql_query = """
         SELECT t.trackID, t.Name, t.Composer
-        FROM tracks t, genres g 
-        WHERE t.GenreId = g.GenreId
-        AND g.GenreId = ?
+        FROM tracks t
+		INNER JOIN genres g ON t.GenreId = g.GenreId
+        WHERE g.GenreId = ?
     """
     return pd.read_sql_query(sql_query, conn, params=(genre_id, ))
 
@@ -52,10 +52,11 @@ def get_tracks(conn:sqlite3.Connection) -> pd.DataFrame:
     :return: all tracks in the database
     """
     sql_query = """
-        SELECT t.trackID, t.Name as TrackName, t.Composer, g.Name as GenreName, a.Title as AlbumTitle
-        FROM tracks t, genres g, albums a 
-        WHERE t.GenreId = g.GenreId
-        AND t.AlbumId = a.AlbumId
+        SELECT t.trackID, t.Name as TrackName, t.Composer, 
+                g.Name as GenreName, a.Title as AlbumTitle
+        FROM tracks t
+		INNER JOIN genres g ON t.GenreId = g.GenreId
+		INNER JOIN albums a ON t.AlbumId = a.AlbumId
     """
     return pd.read_sql_query(sql_query, conn)
 
@@ -91,13 +92,7 @@ def main():
         print("database file not found")
         sys.exit()
 
-    # create a database connection
-    conn = create_connection(database)
-    if not conn:
-        print("Error connecting to database")
-        sys.exit()
-
-    with conn:
+    with create_connection(database) as conn:
         print("List of Genres:")
         genre_df = get_genres(conn)
         print(genre_df.head())

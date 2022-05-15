@@ -17,7 +17,7 @@ Your client is building analytics for a music app and wants you to add some func
     - Example Output: Rock, Metal, Heavy Metal
 * Print out the total # of Tracks by Genre.
     - You can do this in using Pandas querying the get_tracks() dataframe
-    - You can do this in SQL by writing a new function
+    - You can do this in SQL by writing a new SQL query
 * get_top_ten_artists_by_sales() returns a DataFrame with the top 10 artists by total sales
     - Sales are calculated by summing the product of the UnitPrice with the Quantity in the invoice_items table
 
@@ -32,5 +32,5 @@ You can test queries using an online version of this database here:
 
 1. create a virtual environment `python -m venv venv`
 2. activate the virtual environment `source venv/bin/activate` or `venv\Scripts\activate.bat`
-3. install the required packages `python -m pip install -r requirements.txt`
+3. install the required packages `pip install -r requirements.txt`
 4. add your code to the `challenge.py` file
