@@ -55,8 +55,8 @@ def get_tracks(conn:sqlite3.Connection) -> pd.DataFrame:
         SELECT t.trackID, t.Name as TrackName, t.Composer, 
                 g.Name as GenreName, a.Title as AlbumTitle
         FROM tracks t
-		INNER JOIN genres g ON t.GenreId = g.GenreId
-		INNER JOIN albums a ON t.AlbumId = a.AlbumId
+        INNER JOIN genres g ON t.GenreId = g.GenreId
+        INNER JOIN albums a ON t.AlbumId = a.AlbumId
     """
     return pd.read_sql_query(sql_query, conn)
 
