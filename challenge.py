@@ -39,7 +39,7 @@ def get_tracks_by_genre(genre_id:int, conn:sqlite3.Connection) -> pd.DataFrame:
     sql_query = """
         SELECT t.trackID, t.Name, t.Composer
         FROM tracks t
-		INNER JOIN genres g ON t.GenreId = g.GenreId
+        INNER JOIN genres g ON t.GenreId = g.GenreId
         WHERE g.GenreId = ?
     """
     return pd.read_sql_query(sql_query, conn, params=(genre_id, ))
