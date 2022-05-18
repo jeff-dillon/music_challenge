@@ -1,6 +1,9 @@
 # program files
 answer.py
+challenge.py
+answer.sql
 .vscode/
+chinook.db;
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
